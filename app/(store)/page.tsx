@@ -4,7 +4,7 @@ import CategoryGrid from "@/components/layout/CategoryGrid";
 import ProductRail from "@/components/layout/ProductRail";
 import { WhyChooseUs, Testimonials, FAQ, PromoBanner } from "@/components/layout/HomeSections";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 async function getHomeData() {
   const [settings, categories, featured, bestSellers, newArrivals] = await Promise.all([
