@@ -109,6 +109,7 @@ export async function POST(req: NextRequest) {
     const parsed = productSchema.safeParse(body);
 
     if (!parsed.success) {
+        console.error("Product validation errors:", JSON.stringify(parsed.error.flatten(), null, 2));
       return NextResponse.json(
         { error: "Validation failed", details: parsed.error.flatten() },
         { status: 400 }
