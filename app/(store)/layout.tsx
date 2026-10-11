@@ -3,6 +3,8 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import { prisma } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function StoreLayout({ children }: { children: React.ReactNode }) {
   const settings = await prisma.siteSettings.findUnique({ where: { id: "singleton" } }).catch(() => null);
   const categories = await prisma.category
