@@ -36,7 +36,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
     const shouldRestock =
       restockStatuses.includes(parsed.data.status) && !restockStatuses.includes(existing.status);
 
-    const order = await prisma.$transaction(async (tx: typeof prisma) => {
+   const order = await prisma.$transaction(async (tx) => {
       if (shouldRestock) {
         for (const item of existing.items) {
           await tx.product.update({
